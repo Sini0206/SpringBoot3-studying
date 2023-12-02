@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+{{#article}}
+<form class="container" action="/articles/update" method="post"> <!-- form 규격은 옛날 거라 patch 지원이 안됨 -->
+    <input name="id" type="hidden" value="{{id}}">
+    <div class="mb-3">  <!-- 여백? -->
+        <label class="form-label">제목</label>
+        <input type="text" class="form-control" name="title" value="{{title}}">   <!-- DTO의 title 필드와 연결-->
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <!--DTO의 content 필드와 연결-->
+        <textarea class="form-control" rows="3" name ="content">{{content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!--<a>태그: 특정 페이지로 이동하는 HTML 태그, 클릭 시 href 속성에 적힌 URL 주소로 요청 보냄-->
+    <a href="/articles/{{id}}">Back</a>
+</form>
+{{/article}}
+
+{{>layouts/footer}}

@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+    </tr>
+    {{#articleList}}    <!-- 머스테치 변수가 데이터 묶음일 경우 그 안쪽에 있는 코드를 데이터 수만큼 반복 실행 -->
+    <tr>
+        <th>{{id}}</th>
+        <td><a href="/articles/{{id}}">{{title}}</a></td>
+        <th>{{content}}</th>
+    </tr>
+    {{/articleList}}
+    </thead>
+</table>
+<a href="/articles/new">New Article</a>
+
+{{>layouts/footer}}

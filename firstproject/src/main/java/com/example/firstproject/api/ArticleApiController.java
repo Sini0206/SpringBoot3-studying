@@ -1,20 +1,24 @@
 package com.example.firstproject.api;
 
+import com.example.firstproject.entity.Article;
 import com.example.firstproject.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Slf4j
 @RestController
 public class ArticleApiController {
     @Autowired
     private ArticleService articleService;  // 서비스 객체 주입
-//    // GET
-//    @GetMapping("/api/articles")
-//    public List<Article> index(){
-//        return articleRepository.findAll();
-//    }
+    // GET
+    @GetMapping("/api/articles")
+    public List<Article> index(){
+        return articleService.index();
+    }
 //    @GetMapping("/api/articles/{id}")
 //    public Article show(@PathVariable Long id){
 //        return articleRepository.findById(id).orElse(null);

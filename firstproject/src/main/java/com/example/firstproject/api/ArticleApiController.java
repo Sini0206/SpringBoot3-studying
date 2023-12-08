@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class ArticleApiController {
     @Autowired
-    ArticleRepository articleRepository;
+    private ArticleRepository articleRepository;
     // GET
     @GetMapping("/api/articles")
     public List<Article> index(){

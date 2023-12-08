@@ -48,4 +48,15 @@ public class ArticleService {
         target.patch(article);  // 기존 데이터에 새 데이터 붙이기
         return articleRepository.save(target);
     }
+
+    public Article delete(Long id) {
+        // 1. 대상 찾기
+        Article target = articleRepository.findById(id).orElse(null);
+        // 2. 잘못된 요청 처리하기
+        if (target == null)
+            return null;
+        // 3. 대상 삭제하기
+        articleRepository.delete(target);
+        return target;  //DB에서 삭제한 대상을 컨트롤러에 반환
+    }
 }

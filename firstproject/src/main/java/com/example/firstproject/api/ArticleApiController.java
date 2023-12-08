@@ -43,16 +43,12 @@ public class ArticleApiController {
                 ResponseEntity.status(HttpStatus.OK).body(updated) :
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-//    // DELETE
-//    @DeleteMapping("/api/articles/{id}")
-//    public ResponseEntity<Article> delete(@PathVariable Long id){
-//        // 1. 대상 찾기
-//        Article target = articleRepository.findById(id).orElse(null);
-//        // 2. 잘못된 요청 처리하기
-//        if (target == null)
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // .build() == .body(null), body 없는 ResponseEntity 객체 생성
-//        // 3. 대상 삭제하기
-//        articleRepository.delete(target);
-//        return ResponseEntity.status(HttpStatus.OK).build();
-//    }
+    // DELETE
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Article> delete(@PathVariable Long id){
+        Article deleted = articleService.delete(id);    // 서비스를 통해 게시글 삭제
+        return (deleted != null) ?  // 삭제 결과에 따라 응답 처리
+                ResponseEntity.status(HttpStatus.OK).build() :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 }

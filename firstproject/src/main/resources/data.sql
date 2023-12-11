@@ -20,6 +20,6 @@ INSERT INTO comment(article_id, nickname, body) VALUES (5, 'Park', '치킨');
 INSERT INTO comment(article_id, nickname, body) VALUES (5, 'Kim', '샤브샤브');
 INSERT INTO comment(article_id, nickname, body) VALUES (5, 'Choi', '초밥');
 
-INSERT INTO comment(article_id, nickname, body) VALUES (5, 'Park', '조깅');
+INSERT INTO comment(article_id, nickname, body) VALUES (6, 'Park', '조깅');
 INSERT INTO comment(article_id, nickname, body) VALUES (6, 'Kim', '유튜브 시청');
 INSERT INTO comment(article_id, nickname, body) VALUES (6, 'Choi', '독서');

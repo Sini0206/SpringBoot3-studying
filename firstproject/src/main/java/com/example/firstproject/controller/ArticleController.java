@@ -1,9 +1,11 @@
 package com.example.firstproject.controller;
 
 import com.example.firstproject.dto.ArticleForm;
+import com.example.firstproject.dto.CommentDto;
 import com.example.firstproject.entity.Article;
 import com.example.firstproject.entity.Comment;
 import com.example.firstproject.repository.ArticleRepository;
+import com.example.firstproject.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ import java.util.List;
 public class ArticleController {
     @Autowired  //  스프링 부트가 미리 생성해 놓은 리파지터리 객체 주입(DI,Dependency Injection)
     private ArticleRepository articleRepository;
+    @Autowired
+    private CommentService commentService;
     @GetMapping("/articles/new")    //  URL 요청 접수
     public String newArticleForm() {    //  메서드 생성 및 반환 값 요청
         return "articles/new";
@@ -47,8 +51,10 @@ public class ArticleController {
         //  1. id를 조회해 DB에서 데이터 가져오기
         //Optional<Article> articleEntity = articleRepository.findById(id);
         Article articleEntity = articleRepository.findById(id).orElse(null);    //  해당 id값이 없으면 null 반환
+        List<CommentDto> commentsDtos = commentService.comments(id);
         //  2. 모델에 데이터 등록하기
         model.addAttribute("article",articleEntity);    //  머스테치에서 인식할 속성값
+        model.addAttribute("commentsDtos",commentsDtos);    // 댓글 목록 모델에 등록
         //  3. 뷰 페이지 반한
         return "articles/show";
     }

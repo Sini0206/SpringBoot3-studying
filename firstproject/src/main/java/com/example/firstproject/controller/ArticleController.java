@@ -2,6 +2,7 @@ package com.example.firstproject.controller;
 
 import com.example.firstproject.dto.ArticleForm;
 import com.example.firstproject.entity.Article;
+import com.example.firstproject.entity.Comment;
 import com.example.firstproject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j  //  로깅 기능을 위한 어노테이션 추가
 @Controller     //  컨트롤러 선언

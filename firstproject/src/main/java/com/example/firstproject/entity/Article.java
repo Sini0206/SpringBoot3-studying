@@ -20,6 +20,7 @@ public class Article {
     @Column     //  content 필드 선언, DB 테이블의 content 열과 연결됨
     private String content;
 
+
     public void patch(Article article) {
         if (article.title != null)  // 수정할 내용이 있을 때만 갱신
             this.title = article.title;

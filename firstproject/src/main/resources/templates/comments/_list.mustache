@@ -3,10 +3,35 @@
         <div class="card m-2" id="comments-{{id}}">   <!--card : 카드 구조 / m: 마진, 여백 / id 부여-->
             <div class="card-header">
                 {{nickname}}
+                <!-- 수정 버튼을 넣을 위치 -->
+                <!-- Button trigger modal -->
+                <button type="button"
+                        class="btn btn-sm btn-outline-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#comment-edit-modal">수정</button>
             </div>
             <div class="card-body">
                 {{body}}
             </div>
         </div>
     {{/commentsDtos}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="comment-edit-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="exampleModalLabel">댓글 수정</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
 </div>
